@@ -58,7 +58,7 @@ return [
     |
     */
 
-	'html_files' => env('SRC_PATH', app()->path()) . '/Containers/' . config('documentation-container.section_name') . '/Documentation/UI/WEB/Views/',
+	'html_files' => env('SRC_PATH', app()->path()) . '/Containers/VendorSection/Documentation/UI/WEB/Views/',
 
     /*
     |--------------------------------------------------------------------------
