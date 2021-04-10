@@ -3,7 +3,7 @@
 namespace App\Containers\VendorSection\Documentation\Traits;
 
 use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\User\Models\User;
+use App\Containers\AppSection\User\Models\User;
 
 trait HasDocAccessTrait
 {
