@@ -17,5 +17,8 @@ This container works out of the box prefectly but if you want to change its conf
 }
 ```
 
+### Private docs route protection
+By default private docs are only protected in production environment. While protected only users with `admin` role or `access-private-docs` permission can access private docs.
+
 ### Dependencies
 This container depends on [apidoc](https://apidocjs.com/). If you ever removed this container you can remove `apidoc` from your package.json safely.
