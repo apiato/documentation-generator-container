@@ -1,0 +1,13 @@
+{
+    "name": "mohammad-alavi/apiato-documentation-generator",
+    "description": "An Apiato container which can creates a documentation from API annotations in your source code.",
+    "type": "apiato-container",
+    "license": "MIT",
+    "extra": {
+        "apiato": {
+            "container": {
+                "name": "Documentation"
+            }
+        }
+    }
+}
