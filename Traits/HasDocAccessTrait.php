@@ -3,6 +3,7 @@
 namespace App\Containers\VendorSection\Documentation\Traits;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\AppSection\Authentication\Tasks\GetAuthenticatedUserTask;
 use App\Containers\AppSection\User\Models\User;
 
 trait HasDocAccessTrait
@@ -15,7 +16,7 @@ trait HasDocAccessTrait
     {
         if (config('documentation-container.protect-private-docs')) {
             /** @var User|null $user */
-            $user = Apiato::call('Authentication@GetAuthenticatedUserTask');
+	        $user = Apiato::call(GetAuthenticatedUserTask::class);
             if ($user !== null) {
                 if ($user->hasAnyRole(['admin'])) {
                     return true;
