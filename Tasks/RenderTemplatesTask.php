@@ -15,8 +15,8 @@ class RenderTemplatesTask extends Task
 
     public function __construct()
     {
-        $this->templatePath = 'Containers/' . config('documentation-container.section_name') . '/Documentation/ApiDocJs/shared/header.template.md';
-        $this->outputPath = 'Containers/' . config('documentation-container.section_name') . '/Documentation/UI/WEB/Views/documentation/header.md';
+        $this->templatePath = 'Containers/' . config('vendorSection-documentation.section_name') . '/Documentation/ApiDocJs/shared/header.template.md';
+        $this->outputPath = 'Containers/' . config('vendorSection-documentation.section_name') . '/Documentation/UI/WEB/Views/documentation/header.md';
         $this->replaceArray = [
             'api.domain.test', config('apiato.api.url'),
             '{{rate-limit-expires}}', config('apiato.api.throttle.expires'),

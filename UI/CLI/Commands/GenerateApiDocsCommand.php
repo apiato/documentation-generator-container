@@ -14,6 +14,6 @@ class GenerateApiDocsCommand extends ConsoleCommand
 
 	public function handle(): void
 	{
-		Apiato::call(GenerateDocumentationAction::class, [$this]);
+		app(GenerateDocumentationAction::class)->run($this);
 	}
 }

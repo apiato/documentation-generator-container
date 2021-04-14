@@ -10,11 +10,11 @@ class Controller extends WebController
 {
     public function showPrivateDocs(GetPrivateDocumentationRequest $request)
     {
-        return view('documentation::documentation.private.index');
+        return view('vendorSection@documentation::documentation.private.index');
     }
 
     public function showPublicDocs(GetPublicDocumentationRequest $request)
     {
-        return view('documentation::documentation.public.index');
+        return view('vendorSection@documentation::documentation.public.index');
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Containers\VendorSection\Documentation\Traits;
 
-use Illuminate\Support\Facades\Config;
-
 trait DocsGeneratorTrait
 {
     private function getFullDocsUrl($type): string
@@ -13,7 +11,7 @@ trait DocsGeneratorTrait
 
     private function getAppUrl()
     {
-        return Config::get('app.url');
+        return config('app.url');
     }
 
     private function getUrl($type)
@@ -25,12 +23,12 @@ trait DocsGeneratorTrait
 
     private function getTypeConfig()
     {
-        return Config::get($this->getConfigFile() . '.types');
+        return config($this->getConfigFile() . '.types');
     }
 
     private function getConfigFile(): string
     {
-        return 'documentation-container';
+        return 'vendorSection-documentation';
     }
 
     private function getDocumentationPath($type): string
@@ -40,7 +38,7 @@ trait DocsGeneratorTrait
 
     private function getHtmlPath()
     {
-        return Config::get("{$this->getConfigFile()}.html_files");
+        return config("{$this->getConfigFile()}.html_files");
     }
 
     private function getFolderName($type)
@@ -52,12 +50,12 @@ trait DocsGeneratorTrait
 
     private function getJsonFilePath($type): string
     {
-        return 'app/Containers/' . config('documentation-container.section_name') . '/Documentation/ApiDocJs/' . $type;
+        return 'app/Containers/' . config('vendorSection-documentation.section_name') . '/Documentation/ApiDocJs/' . $type;
     }
 
     private function getExecutable()
     {
-        return Config::get($this->getConfigFile() . '.executable');
+        return config($this->getConfigFile() . '.executable');
     }
 
     private function getEndpointFiles($type): array

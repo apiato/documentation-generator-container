@@ -4,7 +4,6 @@ namespace App\Containers\VendorSection\Documentation\Tasks;
 
 use App\Containers\VendorSection\Documentation\Exceptions\NoDocTypesFoundException;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Support\Facades\Config;
 
 class GetAllDocsTypesTask extends Task
 {
@@ -13,7 +12,7 @@ class GetAllDocsTypesTask extends Task
      */
     public function run(): array
     {
-        if (!$configTypes = Config::get('documentation-container.types')) {
+        if (!$configTypes = config('vendorSection-documentation.types')) {
             throw new NoDocTypesFoundException();
         }
 

@@ -10,6 +10,6 @@ class AuthorizationPermissionsSeeder extends Seeder
 {
 	public function run(): void
 	{
-		Apiato::call(CreatePermissionTask::class, ['access-private-docs', 'Access the private docs.']);
+		app(CreatePermissionTask::class)->run('access-private-docs', 'Access the private docs.');
 	}
 }

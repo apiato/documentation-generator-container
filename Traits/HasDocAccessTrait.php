@@ -14,9 +14,8 @@ trait HasDocAccessTrait
      */
     public function hasDocAccess(): bool
     {
-        if (config('documentation-container.protect-private-docs')) {
-            /** @var User|null $user */
-	        $user = Apiato::call(GetAuthenticatedUserTask::class);
+        if (config('vendorSection-documentation.protect-private-docs')) {
+	        $user = app(GetAuthenticatedUserTask::class)->run();
             if ($user !== null) {
                 if ($user->hasAnyRole(['admin'])) {
                     return true;
