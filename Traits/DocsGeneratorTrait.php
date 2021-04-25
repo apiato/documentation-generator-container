@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Traits;
+namespace App\Containers\Vendor\Documentation\Traits;
 
 trait DocsGeneratorTrait
 {
@@ -28,7 +28,7 @@ trait DocsGeneratorTrait
 
     private function getConfigFile(): string
     {
-        return 'vendorSection-documentation';
+        return 'vendor-documentation';
     }
 
     private function getDocumentationPath($type): string
@@ -50,7 +50,7 @@ trait DocsGeneratorTrait
 
     private function getJsonFilePath($type): string
     {
-        return 'app/Containers/' . config('vendorSection-documentation.section_name') . '/Documentation/ApiDocJs/' . $type;
+        return 'app/Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $type;
     }
 
     private function getExecutable()

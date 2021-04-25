@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Tasks;
+namespace App\Containers\Vendor\Documentation\Tasks;
 
-use App\Containers\VendorSection\Documentation\Traits\DocsGeneratorTrait;
+use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 use App\Ship\Parents\Tasks\Task;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;

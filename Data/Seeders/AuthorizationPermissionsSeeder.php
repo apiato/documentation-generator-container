@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Data\Seeders;
+namespace App\Containers\Vendor\Documentation\Data\Seeders;
 
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\AppSection\Authorization\Tasks\CreatePermissionTask;

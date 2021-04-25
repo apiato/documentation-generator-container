@@ -58,7 +58,7 @@ return [
 	|
 	*/
 
-	'html_files' => env('SRC_PATH', app()->path()) . '/Containers/VendorSection/Documentation/UI/WEB/Views/',
+	'html_files' => env('SRC_PATH', app()->path()) . '/Containers/Vendor/Documentation/UI/WEB/Views/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ return [
 	| Specify the Section name where the Documentation Container is located.
 	|
 	*/
-	'section_name' => 'VendorSection',
+	'section_name' => 'Vendor',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Actions;
+namespace App\Containers\Vendor\Documentation\Actions;
 
 use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\VendorSection\Documentation\Tasks\GenerateAPIDocsTask;
-use App\Containers\VendorSection\Documentation\Tasks\GetAllDocsTypesTask;
-use App\Containers\VendorSection\Documentation\Tasks\RenderTemplatesTask;
-use App\Containers\VendorSection\Documentation\UI\CLI\Commands\GenerateApiDocsCommand;
+use App\Containers\Vendor\Documentation\Tasks\GenerateAPIDocsTask;
+use App\Containers\Vendor\Documentation\Tasks\GetAllDocsTypesTask;
+use App\Containers\Vendor\Documentation\Tasks\RenderTemplatesTask;
+use App\Containers\Vendor\Documentation\UI\CLI\Commands\GenerateApiDocsCommand;
 use App\Ship\Parents\Actions\Action;
 
 class GenerateDocumentationAction extends Action

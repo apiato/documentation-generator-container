@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Traits;
+namespace App\Containers\Vendor\Documentation\Traits;
 
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\AppSection\Authentication\Tasks\GetAuthenticatedUserTask;
@@ -14,7 +14,7 @@ trait HasDocAccessTrait
      */
     public function hasDocAccess(): bool
     {
-        if (config('vendorSection-documentation.protect-private-docs')) {
+        if (config('vendor-documentation.protect-private-docs')) {
 	        $user = app(GetAuthenticatedUserTask::class)->run();
             if ($user !== null) {
                 if ($user->hasAnyRole(['admin'])) {

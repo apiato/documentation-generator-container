@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\VendorSection\Documentation\Tasks;
+namespace App\Containers\Vendor\Documentation\Tasks;
 
-use App\Containers\VendorSection\Documentation\Exceptions\NoDocTypesFoundException;
+use App\Containers\Vendor\Documentation\Exceptions\NoDocTypesFoundException;
 use App\Ship\Parents\Tasks\Task;
 
 class GetAllDocsTypesTask extends Task
@@ -12,7 +12,7 @@ class GetAllDocsTypesTask extends Task
      */
     public function run(): array
     {
-        if (!$configTypes = config('vendorSection-documentation.types')) {
+        if (!$configTypes = config('vendor-documentation.types')) {
             throw new NoDocTypesFoundException();
         }
 
