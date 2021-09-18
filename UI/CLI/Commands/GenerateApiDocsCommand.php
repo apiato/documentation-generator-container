@@ -2,7 +2,6 @@
 
 namespace App\Containers\Vendor\Documentation\UI\CLI\Commands;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Vendor\Documentation\Actions\GenerateDocumentationAction;
 use App\Ship\Parents\Commands\ConsoleCommand;
 

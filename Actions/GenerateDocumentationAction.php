@@ -2,7 +2,6 @@
 
 namespace App\Containers\Vendor\Documentation\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Vendor\Documentation\Tasks\GenerateAPIDocsTask;
 use App\Containers\Vendor\Documentation\Tasks\GetAllDocsTypesTask;
 use App\Containers\Vendor\Documentation\Tasks\RenderTemplatesTask;
