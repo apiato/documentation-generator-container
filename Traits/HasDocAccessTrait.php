@@ -1,6 +1,6 @@
 <?php
 
-namespace Apiato\Containers\Documentation\Traits;
+namespace App\Containers\Vendor\Documentation\Traits;
 
 use Apiato\Core\Abstracts\Models\UserModel;
 use Illuminate\Support\Facades\Auth;

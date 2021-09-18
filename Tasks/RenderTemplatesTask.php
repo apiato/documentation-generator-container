@@ -1,6 +1,6 @@
 <?php
 
-namespace Apiato\Containers\Documentation\Tasks;
+namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Ship\Parents\Tasks\Task;
 use DateTime;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Apiato\Containers\Documentation\UI\WEB\Controllers;
+namespace App\Containers\Vendor\Documentation\UI\WEB\Controllers;
 
-use Apiato\Containers\Documentation\UI\WEB\Requests\GetPrivateDocumentationRequest;
-use Apiato\Containers\Documentation\UI\WEB\Requests\GetPublicDocumentationRequest;
+use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPrivateDocumentationRequest;
+use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPublicDocumentationRequest;
 use App\Ship\Parents\Controllers\WebController;
 
 class Controller extends WebController

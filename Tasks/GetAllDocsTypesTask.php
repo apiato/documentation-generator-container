@@ -1,8 +1,8 @@
 <?php
 
-namespace Apiato\Containers\Documentation\Tasks;
+namespace App\Containers\Vendor\Documentation\Tasks;
 
-use Apiato\Containers\Documentation\Exceptions\NoDocTypesFoundException;
+use App\Containers\Vendor\Documentation\Exceptions\NoDocTypesFoundException;
 use App\Ship\Parents\Tasks\Task;
 
 class GetAllDocsTypesTask extends Task
