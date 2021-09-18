@@ -8,6 +8,15 @@
             "container": {
                 "name": "Documentation"
             }
+        },
+        "laravel": {
+            "providers": [
+                "App\\Containers\\Vendor\\Documentation\\Providers\\DocumentGeneratorServiceProvider"
+            ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.21",
+        "apiato/core": "dev-master"
     }
 }

@@ -51,7 +51,7 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| HTML files
+	| HTML Files
 	|--------------------------------------------------------------------------
 	|
 	| Specify where to put the generated HTML files.
@@ -62,7 +62,7 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Documentation container, section name
+	| Documentation Container, Section Name
 	|--------------------------------------------------------------------------
 	|
 	| Specify the Section name where the Documentation Container is located.
@@ -72,12 +72,36 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Protect private docs by auth:web middleware
+	| Protect Private Docs by auth:web Middleware
 	|--------------------------------------------------------------------------
 	|
 	| If enabled, users need to login and have proper roles/permissions to access private docs
 	|
 	*/
 
-	'protect-private-docs' => env('PROTECT_PRIVATE_DOCS', App::isProduction())// Private docs are protected while in production
+	'protect-private-docs' => env('PROTECT_PRIVATE_DOCS', app()->isProduction()),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Permission to Access Protected Private Docs
+	|--------------------------------------------------------------------------
+	|
+	| Permission needed to access protected private docs route
+	|
+	| You have to create and give it to any user (role) you want to have access to the protected private docs.
+	|
+	*/
+
+	'access-private-docs-permission' => env('ACCESS_PRIVATE_DOCS_PERMISSION', 'access-private-docs'),
+
+    /*
+    |--------------------------------------------------------------------------
+	| Roles That Have Access to Protected Private Docs
+    |--------------------------------------------------------------------------
+    |
+	| Add any roles that have access to the protected private docs. e.g. ['admin']
+    |
+    */
+
+    'access-private-docs-roles' => [],
 ];

@@ -2,9 +2,8 @@
 
 namespace App\Containers\Vendor\Documentation\Traits;
 
-use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\AppSection\Authentication\Tasks\GetAuthenticatedUserTask;
-use App\Containers\AppSection\User\Models\User;
+use Apiato\Core\Abstracts\Models\UserModel;
+use Illuminate\Support\Facades\Auth;
 
 trait HasDocAccessTrait
 {
@@ -14,17 +13,43 @@ trait HasDocAccessTrait
      */
     public function hasDocAccess(): bool
     {
-        if (config('vendor-documentation.protect-private-docs')) {
-	        $user = app(GetAuthenticatedUserTask::class)->run();
-            if ($user !== null) {
-                if ($user->hasAnyRole(['admin'])) {
-                    return true;
-                }
-                if ($user->checkPermissionTo('access-private-docs')) {
-                    return true;
-                }
-            }
-            return false;
+        if ($this->docsAreProtected()) {
+            $user = Auth::user();
+
+            return $this->userExists($user) && $this->haveAccess($user);
+        }
+
+        return true;
+    }
+
+    private function docsAreProtected()
+    {
+        return config('vendor-documentation.protect-private-docs');
+    }
+
+    private function userExists($user): bool
+    {
+        return $user !== null;
+    }
+
+    private function haveAccess(UserModel $user): bool
+    {
+        return $this->hasRolesWithAccess($user) || $this->hasPermission($user);
+    }
+
+    private function hasRolesWithAccess(UserModel $user): bool
+    {
+        if (is_callable([$user, 'hasAnyRole'])) {
+            return $user->hasAnyRole(config('vendor-documentation.access-private-docs-roles'));
+        }
+
+        return true;
+    }
+
+    private function hasPermission($user)
+    {
+        if (is_callable([$user, 'checkPermissionTo'])) {
+            return $user->checkPermissionTo(config('vendor-documentation.access-private-docs-permission'));
         }
 
         return true;
