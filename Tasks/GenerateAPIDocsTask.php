@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\Tasks;
+namespace Apiato\Containers\Documentation\Tasks;
 
-use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
+use Apiato\Containers\Documentation\Traits\DocsGeneratorTrait;
 use App\Ship\Parents\Tasks\Task;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\UI\WEB\Requests;
+namespace Apiato\Containers\Documentation\UI\WEB\Requests;
 
-use App\Containers\Vendor\Documentation\Traits\HasDocAccessTrait;
+use Apiato\Containers\Documentation\Traits\HasDocAccessTrait;
 use App\Ship\Parents\Requests\Request;
 
 class GetPrivateDocumentationRequest extends Request

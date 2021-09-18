@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\Providers;
+namespace Apiato\Containers\Documentation\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

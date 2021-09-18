@@ -11,12 +11,17 @@
         },
         "laravel": {
             "providers": [
-                "App\\Containers\\Vendor\\Documentation\\Providers\\DocumentGeneratorServiceProvider"
+                "Apiato\\Containers\\Documentation\\Providers\\DocumentGeneratorServiceProvider"
             ]
         }
     },
     "require-dev": {
         "orchestra/testbench": "^6.21",
         "apiato/core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Apiato\\Containers\\Documentation\\": ""
+        }
     }
 }

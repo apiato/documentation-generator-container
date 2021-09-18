@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\Traits;
+namespace Apiato\Containers\Documentation\Traits;
 
 trait DocsGeneratorTrait
 {

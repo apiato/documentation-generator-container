@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\UI\CLI\Commands;
+namespace Apiato\Containers\Documentation\UI\CLI\Commands;
 
-use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\Vendor\Documentation\Actions\GenerateDocumentationAction;
+use Apiato\Containers\Documentation\Actions\GenerateDocumentationAction;
 use App\Ship\Parents\Commands\ConsoleCommand;
 
 class GenerateApiDocsCommand extends ConsoleCommand

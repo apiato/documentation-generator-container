@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\Exceptions;
+namespace Apiato\Containers\Documentation\Exceptions;
 
 use App\Ship\Parents\Exceptions\Exception;
 use Symfony\Component\HttpFoundation\Response;

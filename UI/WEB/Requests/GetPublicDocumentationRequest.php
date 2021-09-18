@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\Vendor\Documentation\UI\WEB\Requests;
+namespace Apiato\Containers\Documentation\UI\WEB\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
