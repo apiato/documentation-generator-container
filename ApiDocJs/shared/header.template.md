@@ -148,7 +148,8 @@ Order By Accepts:
 
 ### Searching
 
-The `?search=` parameter can be applied to any **`GET`** HTTP request.
+If the [RequestCriteria](http://apiato.io/docs/core-features/query-parameters#using-the-request-criteria)
+is enabled on a route then the `?search=` parameter can be applied to **`GET`** HTTP requests on that specific route.
 
 **Usage:**
 
