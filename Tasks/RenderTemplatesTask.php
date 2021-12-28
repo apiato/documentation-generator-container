@@ -18,7 +18,7 @@ class RenderTemplatesTask extends Task
 		$this->templatePath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/shared/header.template.md';
 		$this->outputPath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/UI/WEB/Views/documentation/header.md';
 		$this->replaceArray = [
-			'api.domain.test' => config('apiato.api.url'),
+			'api.apiato.test' => config('apiato.api.url'),
 			'{{rate-limit-expires}}' => config('apiato.api.throttle.expires'),
 			'{{rate-limit-attempts}}' => config('apiato.api.throttle.attempts'),
 			'{{access-token-expires-in}}' => $this->minutesToTimeDisplay(config('apiato.api.expires-in')),
