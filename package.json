@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apidoc": "git+https://github.com/apidoc/apidoc.git#dev"
+  }
+}
