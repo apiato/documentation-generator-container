@@ -50,7 +50,7 @@ trait DocsGeneratorTrait
 
     private function getJsonFilePath($type): string
     {
-        return 'app/Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $type;
+        return 'app/Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $type . '/apidoc.json';
     }
 
     private function getExecutable()
