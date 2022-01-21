@@ -24,7 +24,7 @@ class GenerateAPIDocsTask extends Task
             "app",
             "-o",
             $path,
-            "--single"
+            "--single",
         ];
 
         $process = new Process($command);

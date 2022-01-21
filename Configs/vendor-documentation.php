@@ -104,4 +104,15 @@ return [
     */
 
     'access-private-docs-roles' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Enable Sending Sample Request
+    |--------------------------------------------------------------------------
+    |
+    | Enable sending of sample request
+    |
+    */
+
+    'enable-sending-sample-request' => true,
 ];
