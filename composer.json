@@ -16,7 +16,11 @@
         }
     },
     "require-dev": {
-        "orchestra/testbench": "^6.21",
         "apiato/core": "dev-master"
+    },
+    "config": {
+        "allow-plugins": {
+            "apiato/container-installer": true
+        }
     }
 }
