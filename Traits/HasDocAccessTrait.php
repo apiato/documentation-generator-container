@@ -39,8 +39,8 @@ trait HasDocAccessTrait
 
     private function hasRolesWithAccess(UserModel $user): bool
     {
-        if (is_callable([$user, 'hasAnyRole'])) {
-            return $user->hasAnyRole(config('vendor-documentation.access-private-docs-roles'));
+        if (is_callable([$user, 'hasRole'])) {
+            return $user->hasRole(config('vendor-documentation.access-private-docs-roles'), 'web');
         }
 
         return true;
