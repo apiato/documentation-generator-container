@@ -49,7 +49,7 @@ trait HasDocAccessTrait
     private function hasPermission($user)
     {
         if (is_callable([$user, 'checkPermissionTo'])) {
-            return $user->checkPermissionTo(config('vendor-documentation.access-private-docs-permission'));
+            return $user->checkPermissionTo(config('vendor-documentation.access-private-docs-permission'), 'web');
         }
 
         return true;
