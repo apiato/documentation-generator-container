@@ -16,7 +16,7 @@
         }
     },
     "require-dev": {
-        "apiato/core": "^v7.0.0-rc.1"
+        "apiato/core": "^v7.0.0"
     },
     "config": {
         "allow-plugins": {
