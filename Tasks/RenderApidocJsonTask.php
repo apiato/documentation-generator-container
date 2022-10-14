@@ -19,9 +19,19 @@ class RenderApidocJsonTask extends Task
             'name' => config('app.name'),
             'description' => config('app.name') . ' (' . ucfirst($docType) . ' API) Documentation',
             'title' => 'Welcome to ' . config('app.name'),
-            'url' => config('apiato.api.url'),
-            'sampleUrl' => config('vendor-documentation.enable-sending-sample-request') ? config('apiato.api.url') : null,
+            'url' => $this->getFullUrl(),
+            'sampleUrl' => config('vendor-documentation.enable-sending-sample-request') ? $this->getFullUrl() : null,
         ];
+    }
+
+    private function getFullUrl(): string
+    {
+        return config('apiato.api.url') . $this->prepareUrlPrefix();
+    }
+
+    private function prepareUrlPrefix(): string
+    {
+        return rtrim(config('apiato.api.prefix'), '/');
     }
 
     /**
@@ -43,7 +53,7 @@ class RenderApidocJsonTask extends Task
         //Encode the array back into a JSON string.
         $jsonContent = json_encode($contentsDecoded);
 
-        // this is what the apidoc.json file will point to to load the header.md
+        // this is what the apidoc.json file will point to, to load the header.md
         // write the actual file
         $path = app_path($this->outputPath);
         file_put_contents($path, $jsonContent);
