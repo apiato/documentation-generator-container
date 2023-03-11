@@ -2,10 +2,10 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 use DateTime;
 
-class RenderTemplatesTask extends Task
+class RenderTemplatesTask extends AbstractTask
 {
     private $headerMarkdownContent;
     private string $templatePath;

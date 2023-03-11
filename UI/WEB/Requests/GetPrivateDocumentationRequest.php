@@ -3,9 +3,9 @@
 namespace App\Containers\Vendor\Documentation\UI\WEB\Requests;
 
 use App\Containers\Vendor\Documentation\Traits\HasDocAccessTrait;
-use App\Ship\Parents\Requests\Request;
+use Apiato\Core\Abstracts\Requests\Request as AbstractRequest;
 
-class GetPrivateDocumentationRequest extends Request
+class GetPrivateDocumentationRequest extends AbstractRequest
 {
     use HasDocAccessTrait;
 

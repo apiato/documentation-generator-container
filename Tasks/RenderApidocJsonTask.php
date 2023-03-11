@@ -2,9 +2,9 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 
-class RenderApidocJsonTask extends Task
+class RenderApidocJsonTask extends AbstractTask
 {
     private string $templatePath;
     private string $outputPath;
