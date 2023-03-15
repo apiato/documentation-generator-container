@@ -2,10 +2,13 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
+use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 
 class RenderApidocJsonTask extends AbstractTask
 {
+    use DocsGeneratorTrait;
+
     private string $templatePath;
     private string $outputPath;
     // ['templateKey' => value]
@@ -13,8 +16,8 @@ class RenderApidocJsonTask extends AbstractTask
 
     public function __construct(string $docType)
     {
-        $this->templatePath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $docType . '/apidoc.json';
-        $this->outputPath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $docType . '/apidoc.json';
+        $this->templatePath = $this->getPathInDocumentationContainer('/ApiDocJs/apidoc.template.json');
+        $this->outputPath = $this->getJsonFilePath($docType);
         $this->replaceArray = [
             'name' => config('app.name'),
             'description' => config('app.name') . ' (' . ucfirst($docType) . ' API) Documentation',
@@ -40,7 +43,7 @@ class RenderApidocJsonTask extends AbstractTask
     public function run(): string
     {
         // read the template file
-        $jsonContent = file_get_contents(app_path($this->templatePath));
+        $jsonContent = file_get_contents($this->templatePath);
 
         //Decode the JSON data into a PHP array.
         $contentsDecoded = json_decode($jsonContent, true);
@@ -55,9 +58,22 @@ class RenderApidocJsonTask extends AbstractTask
 
         // this is what the apidoc.json file will point to, to load the header.md
         // write the actual file
-        $path = app_path($this->outputPath);
-        file_put_contents($path, $jsonContent);
+        $this->fileForceContents($this->outputPath, $jsonContent);
 
-        return $path;
+        return $this->outputPath;
+    }
+
+    // File put contents fails if you try to put a file in a directory that doesn't exist.
+    // This creates the directory.
+    private function fileForceContents($dir, $contents): void
+    {
+        $parts = explode('/', $dir);
+        $file = array_pop($parts);
+        $dir = '';
+
+        foreach ($parts as $part)
+            if (!is_dir($dir .= "/$part")) mkdir($dir);
+
+        file_put_contents("$dir/$file", $contents);
     }
 }

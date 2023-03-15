@@ -1,8 +1,8 @@
 <?php
 
 return [
-    
-     /*
+
+    /*
     |--------------------------------------------------------------------------
     | Locale
     |--------------------------------------------------------------------------
@@ -10,8 +10,8 @@ return [
     | Language header docs
     |
     */
-    
-    'locale' => '.'.env('APIDOC_LOCALE', 'en'),
+
+    'locale' => '.' . env('APIDOC_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,8 +29,8 @@ return [
     | API Types
     |--------------------------------------------------------------------------
     |
-    | The `types` helps generating multiple documentations, by grouping them
-    | under types names. You can add or remove any type. By default
+    | The `types` helps to generate multiple documentations, by grouping them
+    | under types names. You can add or remove any type. By default,
     | `public` and `private` types are set.
     |
     | url: The url to access that generated API documentation.
@@ -55,7 +55,6 @@ return [
             'folder-name' => 'documentation/private', // doc folder name
             'routes' => [
                 'private',
-                'public',
             ],
         ],
     ],
@@ -86,7 +85,7 @@ return [
     | Protect Private Docs by auth:web Middleware
     |--------------------------------------------------------------------------
     |
-    | If enabled, users need to login and have proper roles/permissions to access private docs
+    | If enabled, users need to log in and have proper roles/permissions to access private docs
     |
     */
 
