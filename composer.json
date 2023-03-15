@@ -15,6 +15,9 @@
             ]
         }
     },
+    "require": {
+        "php": "^8.1"
+    },
     "require-dev": {
         "apiato/core": "^v8.1.0"
     },
