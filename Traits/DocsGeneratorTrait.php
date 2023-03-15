@@ -16,12 +16,12 @@ trait DocsGeneratorTrait
 
     private function getUrl($type)
     {
-        $configs = $this->getTypeConfig();
+        $configs = $this->getTypeConfigs();
 
         return $configs[$type]['url'];
     }
 
-    private function getTypeConfig()
+    private function getTypeConfigs()
     {
         return config($this->getConfigFile() . '.types');
     }
@@ -43,14 +43,29 @@ trait DocsGeneratorTrait
 
     private function getFolderName($type)
     {
-        $configs = $this->getTypeConfig();
+        $configs = $this->getTypeConfigs();
 
         return $configs[$type]['folder-name'];
     }
 
     private function getJsonFilePath($type): string
     {
-        return 'app/Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/' . $type . '/apidoc.json';
+        return $this->getApiDocJsConfigsPath() . '/' . $this->getJsonFileName($type);
+    }
+
+    private function getApiDocJsConfigsPath(): string
+    {
+        return $this->getPathInDocumentationContainer('/ApiDocJs/Configs');
+    }
+
+    private function getPathInDocumentationContainer(string $path): string
+    {
+        return app_path('Containers/' . config('vendor-documentation.section_name') . '/Documentation' . $path);
+    }
+
+    private function getJsonFileName($type): string
+    {
+        return 'apidoc.' . $type . '.json';
     }
 
     private function getExecutable()
@@ -60,7 +75,7 @@ trait DocsGeneratorTrait
 
     private function getEndpointFiles($type): array
     {
-        $configs = $this->getTypeConfig();
+        $configs = $this->getTypeConfigs();
 
         // what files types needs to be included
         $routeFilesCommand = [];

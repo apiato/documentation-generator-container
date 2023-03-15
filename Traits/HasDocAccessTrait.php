@@ -16,7 +16,7 @@ trait HasDocAccessTrait
         if ($this->docsAreProtected()) {
             $user = Auth::user();
 
-            return $this->userExists($user) && $this->haveAccess($user);
+            return $this->userExists($user) && $this->hasAccess($user);
         }
 
         return true;
@@ -29,10 +29,10 @@ trait HasDocAccessTrait
 
     private function userExists($user): bool
     {
-        return $user !== null;
+        return !is_null($user);
     }
 
-    private function haveAccess(UserModel $user): bool
+    private function hasAccess(UserModel $user): bool
     {
         return $this->hasRolesWithAccess($user) || $this->hasPermission($user);
     }
