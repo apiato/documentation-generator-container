@@ -2,12 +2,15 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
+use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 use App\Ship\Parents\Tasks\Task;
 use DateTime;
+use Exception;
 
 class RenderTemplatesTask extends Task
 {
-    private $headerMarkdownContent;
+    use DocsGeneratorTrait;
+
     private string $templatePath;
     private string $outputPath;
     // ['templateKey' => value]
@@ -15,8 +18,8 @@ class RenderTemplatesTask extends Task
 
     public function __construct()
     {
-        $this->templatePath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/ApiDocJs/shared/header.template'.config('vendor-documentation.locale', 'en').'.md';
-        $this->outputPath = 'Containers/' . config('vendor-documentation.section_name') . '/Documentation/UI/WEB/Views/documentation/header.md';
+        $this->templatePath = $this->getPathInDocumentationContainer('/ApiDocJs/Headers/header.template' . config('vendor-documentation.locale', 'en') . '.md');
+        $this->outputPath = $this->getPathInDocumentationContainer('/UI/WEB/Views/documentation/header.md');
         $this->replaceArray = [
             'api.domain.test' => config('apiato.api.url'),
             '{{rate-limit-expires}}' => config('apiato.api.throttle.expires'),
@@ -41,32 +44,32 @@ class RenderTemplatesTask extends Task
 
     /**
      * Read the markdown header template and fill it with some real data from the .env file.
+     * @throws Exception
      */
     public function run(): string
     {
         // read the template file
-        $this->headerMarkdownContent = file_get_contents(app_path($this->templatePath));
-        $this->headerMarkdownContent = $this->replaceMarkdownContent($this->headerMarkdownContent, $this->replaceArray);
+        try {
+            $headerMarkdownContent = file_get_contents($this->templatePath);
+        } catch (Exception) {
+            throw new Exception('Could not read header template file', 500);
+        }
 
-        // this is what the apidoc.json file will point to to load the header.md
+        $headerMarkdownContent = $this->replaceMarkdownContent($headerMarkdownContent, $this->replaceArray);
+
+        // this is what the apidoc.json file will point to, to load the header.md
         // write the actual file
-        $path = app_path($this->outputPath);
-        file_put_contents($path, $this->headerMarkdownContent);
+        file_put_contents($this->outputPath, $headerMarkdownContent);
 
-        return $path;
+        return $this->outputPath;
     }
 
-    private function replaceMarkdownContent($markdownContent, array $replaceArray)
+    private function replaceMarkdownContent(string $markdownContent, array $replaceArray): array|string
     {
-        foreach ($replaceArray as $key => $value) {
-            $markdownContent = $this->replace($markdownContent, $key, $value);
+        foreach ($replaceArray as $search => $replace) {
+            $markdownContent = str_replace($search, $replace, $markdownContent);
         }
 
         return $markdownContent;
-    }
-
-    private function replace($markdownContent, $templateKey, $value)
-    {
-        return str_replace($templateKey, $value, $markdownContent);
     }
 }
