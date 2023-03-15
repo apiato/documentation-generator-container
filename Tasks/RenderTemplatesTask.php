@@ -51,7 +51,7 @@ class RenderTemplatesTask extends Task
         // read the template file
         try {
             $headerMarkdownContent = file_get_contents($this->templatePath);
-        } catch (Exception) {
+        } catch (Exception $e) {
             throw new Exception('Could not read header template file', 500);
         }
 
