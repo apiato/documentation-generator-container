@@ -3,11 +3,11 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 use DateTime;
 use Exception;
 
-class RenderTemplatesTask extends Task
+class RenderTemplatesTask extends AbstractTask
 {
     use DocsGeneratorTrait;
 

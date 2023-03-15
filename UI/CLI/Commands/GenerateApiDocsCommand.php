@@ -3,9 +3,9 @@
 namespace App\Containers\Vendor\Documentation\UI\CLI\Commands;
 
 use App\Containers\Vendor\Documentation\Actions\GenerateDocumentationAction;
-use App\Ship\Parents\Commands\ConsoleCommand;
+use Apiato\Core\Abstracts\Commands\ConsoleCommand as AbstractConsoleCommand;
 
-class GenerateApiDocsCommand extends ConsoleCommand
+class GenerateApiDocsCommand extends AbstractConsoleCommand
 {
 	protected $signature = "apiato:apidoc";
 

@@ -3,9 +3,9 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 
-class RenderApidocJsonTask extends Task
+class RenderApidocJsonTask extends AbstractTask
 {
     use DocsGeneratorTrait;
 

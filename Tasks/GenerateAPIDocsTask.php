@@ -3,11 +3,11 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
-class GenerateAPIDocsTask extends Task
+class GenerateAPIDocsTask extends AbstractTask
 {
     use DocsGeneratorTrait;
 

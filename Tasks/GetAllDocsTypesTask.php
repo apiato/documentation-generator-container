@@ -3,9 +3,9 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Exceptions\NoDocTypesFoundException;
-use App\Ship\Parents\Tasks\Task;
+use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
 
-class GetAllDocsTypesTask extends Task
+class GetAllDocsTypesTask extends AbstractTask
 {
     /**
      * @throws NoDocTypesFoundException

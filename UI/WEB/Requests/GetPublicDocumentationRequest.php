@@ -2,9 +2,9 @@
 
 namespace App\Containers\Vendor\Documentation\UI\WEB\Requests;
 
-use App\Ship\Parents\Requests\Request;
+use Apiato\Core\Abstracts\Requests\Request as AbstractRequest;
 
-class GetPublicDocumentationRequest extends Request
+class GetPublicDocumentationRequest extends AbstractRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.

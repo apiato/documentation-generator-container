@@ -4,9 +4,9 @@ namespace App\Containers\Vendor\Documentation\UI\WEB\Controllers;
 
 use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPrivateDocumentationRequest;
 use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPublicDocumentationRequest;
-use App\Ship\Parents\Controllers\WebController;
+use Apiato\Core\Abstracts\Controllers\WebController as AbstractWebController;
 
-class Controller extends WebController
+class Controller extends AbstractWebController
 {
     public function showPrivateDocs(GetPrivateDocumentationRequest $request)
     {
