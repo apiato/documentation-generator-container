@@ -55,6 +55,7 @@ return [
             'folder-name' => 'documentation/private', // doc folder name
             'routes' => [
                 'private',
+                'public',
             ],
         ],
     ],
