@@ -4,24 +4,22 @@ namespace App\Containers\Vendor\Documentation\Traits;
 
 trait DocsGeneratorTrait
 {
-    private function getFullDocsUrl($type): string
+    private function getFullDocsUrl(string $type): string
     {
         return '> ' . $this->getAppUrl() . '/' . $this->getUrl($type);
     }
 
-    private function getAppUrl()
+    private function getAppUrl(): string
     {
         return config('app.url');
     }
 
-    private function getUrl($type)
+    private function getUrl(string $type): string
     {
-        $configs = $this->getTypeConfigs();
-
-        return $configs[$type]['url'];
+        return $this->getTypeConfigs()[$type]['url'];
     }
 
-    private function getTypeConfigs()
+    private function getTypeConfigs(): array
     {
         return config($this->getConfigFile() . '.types');
     }
@@ -31,24 +29,22 @@ trait DocsGeneratorTrait
         return 'vendor-documentation';
     }
 
-    private function getDocumentationPath($type): string
+    private function getDocumentationPath(string $type): string
     {
         return $this->getHtmlPath() . $this->getFolderName($type);
     }
 
-    private function getHtmlPath()
+    private function getHtmlPath(): string
     {
         return config("{$this->getConfigFile()}.html_files");
     }
 
-    private function getFolderName($type)
+    private function getFolderName(string $type): string
     {
-        $configs = $this->getTypeConfigs();
-
-        return $configs[$type]['folder-name'];
+        return $this->getTypeConfigs()[$type]['folder-name'];
     }
 
-    private function getJsonFilePath($type): string
+    private function getJsonFilePath(string $type): string
     {
         return $this->getApiDocJsConfigsPath() . '/' . $this->getJsonFileName($type);
     }
@@ -63,23 +59,20 @@ trait DocsGeneratorTrait
         return app_path('Containers/' . config('vendor-documentation.section_name') . '/Documentation' . $path);
     }
 
-    private function getJsonFileName($type): string
+    private function getJsonFileName(string $type): string
     {
         return 'apidoc.' . $type . '.json';
     }
 
-    private function getExecutable()
+    private function getExecutable(): string
     {
         return config($this->getConfigFile() . '.executable');
     }
 
-    private function getEndpointFiles($type): array
+    private function getEndpointFiles(string $type): array
     {
-        $configs = $this->getTypeConfigs();
-
-        // what files types needs to be included
         $routeFilesCommand = [];
-        $routes = $configs[$type]['routes'];
+        $routes = $this->getTypeConfigs()[$type]['routes'];
 
         foreach ($routes as $route) {
             $routeFilesCommand[] = '-f';

@@ -2,8 +2,8 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
-use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
+use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 
 class RenderApidocJsonTask extends AbstractTask
 {
@@ -11,7 +11,6 @@ class RenderApidocJsonTask extends AbstractTask
 
     private string $templatePath;
     private string $outputPath;
-    // ['templateKey' => value]
     private array $replaceArray;
 
     public function __construct(string $docType)
@@ -39,22 +38,24 @@ class RenderApidocJsonTask extends AbstractTask
 
     /**
      * Read the markdown header template and fill it with some real data from the .env file.
+     *
+     * @throws \JsonException
      */
     public function run(): string
     {
         // read the template file
         $jsonContent = file_get_contents($this->templatePath);
 
-        //Decode the JSON data into a PHP array.
-        $contentsDecoded = json_decode($jsonContent, true);
+        // decode the JSON data into a PHP array.
+        $contentsDecoded = json_decode($jsonContent, true, 512, JSON_THROW_ON_ERROR);
 
-        //Modify the variables.
+        // modify the variables.
         foreach ($this->replaceArray as $key => $value) {
             $contentsDecoded[$key] = $value;
         }
 
-        //Encode the array back into a JSON string.
-        $jsonContent = json_encode($contentsDecoded);
+        // encode the array back into a JSON string.
+        $jsonContent = json_encode($contentsDecoded, JSON_THROW_ON_ERROR);
 
         // this is what the apidoc.json file will point to, to load the header.md
         // write the actual file
@@ -63,17 +64,24 @@ class RenderApidocJsonTask extends AbstractTask
         return $this->outputPath;
     }
 
-    // File put contents fails if you try to put a file in a directory that doesn't exist.
-    // This creates the directory.
-    private function fileForceContents($dir, $contents): void
+    // file_put_contents() fails if you try to put a file in a directory that doesn't exist.
+    // this creates the directory if it doesn't exist.
+    private function fileForceContents(string $dir, string $contents): void
     {
         $parts = explode('/', $dir);
         $file = array_pop($parts);
         $dir = '';
 
-        foreach ($parts as $part)
-            if (!is_dir($dir .= "/$part")) mkdir($dir);
+        foreach ($parts as $key => $part) {
+            if ($key === 0) {
+                continue;
+            }
 
-        file_put_contents("$dir/$file", $contents);
+            $dir .= "/{$part}";
+            if (!is_dir($dir) && !mkdir($dir)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
+            }
+        }
+        file_put_contents("{$dir}/{$file}", $contents);
     }
 }
