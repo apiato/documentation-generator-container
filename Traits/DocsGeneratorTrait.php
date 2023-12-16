@@ -46,17 +46,17 @@ trait DocsGeneratorTrait
 
     private function getJsonFilePath(string $type): string
     {
-        return $this->getApiDocJsConfigsPath() . '/' . $this->getJsonFileName($type);
+        return $this->getApiDocJsConfigsPath() . DIRECTORY_SEPARATOR . $this->getJsonFileName($type);
     }
 
     private function getApiDocJsConfigsPath(): string
     {
-        return $this->getPathInDocumentationContainer('/ApiDocJs/Configs');
+        return $this->getPathInDocumentationContainer(DIRECTORY_SEPARATOR . 'ApiDocJs' . DIRECTORY_SEPARATOR . 'Configs');
     }
 
     private function getPathInDocumentationContainer(string $path): string
     {
-        return app_path('Containers/' . config('vendor-documentation.section_name') . '/Documentation' . $path);
+        return app_path('Containers' . DIRECTORY_SEPARATOR . config('vendor-documentation.section_name') . DIRECTORY_SEPARATOR . 'Documentation' . $path);
     }
 
     private function getJsonFileName(string $type): string
