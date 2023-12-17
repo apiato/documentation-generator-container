@@ -40,7 +40,7 @@ class GenerateDocumentationAction extends AbstractAction
 
     private function removeOldConfigs(): void
     {
-        $files = glob($this->getApiDocJsConfigsPath() . '/*');
+        $files = glob($this->getApiDocJsConfigsPath() . DIRECTORY_SEPARATOR . '*');
         foreach ($files as $file) {
             if (is_file($file)) {
                 unlink($file);

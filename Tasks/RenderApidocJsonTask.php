@@ -68,7 +68,7 @@ class RenderApidocJsonTask extends AbstractTask
     // this creates the directory if it doesn't exist.
     private function fileForceContents(string $dir, string $contents): void
     {
-        $parts = explode('/', $dir);
+        $parts = explode(DIRECTORY_SEPARATOR, $dir);
         $file = array_pop($parts);
         $dir = '';
 
@@ -77,11 +77,11 @@ class RenderApidocJsonTask extends AbstractTask
                 continue;
             }
 
-            $dir .= "/{$part}";
+            $dir .= DIRECTORY_SEPARATOR . $part;
             if (!is_dir($dir) && !mkdir($dir)) {
                 throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
             }
         }
-        file_put_contents("{$dir}/{$file}", $contents);
+        file_put_contents($dir . DIRECTORY_SEPARATOR . $file, $contents);
     }
 }
