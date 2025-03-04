@@ -2,7 +2,40 @@
     "name": "apiato/documentation-generator-container",
     "description": "An Apiato container which can creates a documentation from API annotations in your source code.",
     "type": "apiato-container",
+    "keywords": [
+        "Apiato",
+        "Documentation Generator"
+    ],
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/apiato/documentation-generator-container/issues",
+        "source": "https://github.com/apiato/documentation-generator-container"
+    },
+    "authors": [
+        {
+            "name": "Mahmoud Zalt",
+            "email": "mahmoud@zalt.me",
+            "role": "Author"
+        },
+        {
+            "name": "Mohammad Alavi",
+            "email": "mohammad.alavi1990@gmail.com",
+            "homepage": "https://mohammadalavi.com/",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "apiato/core": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/var/www/html/core"
+        }
+    ],
     "extra": {
         "apiato": {
             "container": {
@@ -15,15 +48,11 @@
             ]
         }
     },
-    "require": {
-        "php": "^8.1"
-    },
-    "require-dev": {
-        "apiato/core": "^v8.1.0"
-    },
     "config": {
         "allow-plugins": {
             "apiato/container-installer": true
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
