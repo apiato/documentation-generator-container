@@ -3,7 +3,7 @@
 namespace App\Containers\Vendor\Documentation\UI\WEB\Requests;
 
 use App\Containers\Vendor\Documentation\Traits\HasDocAccessTrait;
-use Apiato\Core\Abstracts\Requests\Request as AbstractRequest;
+use Apiato\Core\Requests\Request as AbstractRequest;
 
 class GetPrivateDocumentationRequest extends AbstractRequest
 {

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Vendor\Documentation\Tasks;
 
-use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
+use Apiato\Core\Tasks\Task as AbstractTask;
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 
 class RenderApidocJsonTask extends AbstractTask

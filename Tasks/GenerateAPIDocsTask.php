@@ -3,7 +3,7 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
-use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
+use Apiato\Core\Tasks\Task as AbstractTask;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 

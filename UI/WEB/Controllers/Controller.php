@@ -4,7 +4,7 @@ namespace App\Containers\Vendor\Documentation\UI\WEB\Controllers;
 
 use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPrivateDocumentationRequest;
 use App\Containers\Vendor\Documentation\UI\WEB\Requests\GetPublicDocumentationRequest;
-use Apiato\Core\Abstracts\Controllers\WebController as AbstractWebController;
+use Apiato\Core\Controllers\WebController as AbstractWebController;
 
 class Controller extends AbstractWebController
 {

@@ -8,7 +8,7 @@ use App\Containers\Vendor\Documentation\Tasks\RenderApidocJsonTask;
 use App\Containers\Vendor\Documentation\Tasks\RenderTemplatesTask;
 use App\Containers\Vendor\Documentation\Traits\DocsGeneratorTrait;
 use App\Containers\Vendor\Documentation\UI\CLI\Commands\GenerateApiDocsCommand;
-use Apiato\Core\Abstracts\Actions\Action as AbstractAction;
+use Apiato\Core\Actions\Action as AbstractAction;
 
 class GenerateDocumentationAction extends AbstractAction
 {

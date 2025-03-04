@@ -3,7 +3,7 @@
 namespace App\Containers\Vendor\Documentation\Tasks;
 
 use App\Containers\Vendor\Documentation\Exceptions\NoDocTypesFoundException;
-use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
+use Apiato\Core\Tasks\Task as AbstractTask;
 
 class GetAllDocsTypesTask extends AbstractTask
 {
