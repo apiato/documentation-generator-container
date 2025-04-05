@@ -33,7 +33,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "/var/www/html/core"
+            "url": "/var/www/core"
         }
     ],
     "extra": {
