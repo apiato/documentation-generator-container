@@ -3,7 +3,7 @@
 namespace App\Containers\Vendor\Documentation\UI\CLI\Commands;
 
 use App\Containers\Vendor\Documentation\Actions\GenerateDocumentationAction;
-use Apiato\Core\Commands\Command as AbstractConsoleCommand;
+use Apiato\Core\Console\Command as AbstractConsoleCommand;
 
 class GenerateApiDocsCommand extends AbstractConsoleCommand
 {
