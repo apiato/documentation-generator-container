@@ -25,9 +25,7 @@
         }
     ],
     "require": {
-        "php": "^8.2"
-    },
-    "require-dev": {
+        "php": "^8.2",
         "apiato/core": "dev-master"
     },
     "repositories": [
