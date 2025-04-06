@@ -26,14 +26,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "apiato/core": "dev-master"
+        "apiato/core": "13.x-dev"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/var/www/core"
-        }
-    ],
     "extra": {
         "apiato": {
             "container": {
