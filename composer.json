@@ -26,7 +26,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "apiato/core": "13.x-dev"
+        "apiato/core": "^13.0"
     },
     "extra": {
         "apiato": {
